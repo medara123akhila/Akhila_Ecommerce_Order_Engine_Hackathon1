@@ -1,0 +1,20 @@
+products = {}
+
+class Product:
+    def __init__(self, pid, name, price, stock):
+        self.pid = pid
+        self.name = name
+        self.price = price
+        self.stock = stock
+
+def add_product(pid, name, price, stock):
+    if pid in products:
+        print("❌ Duplicate Product ID")
+        return
+    
+    products[pid] = Product(pid, name, price, stock)
+    print("✅ Product added")
+
+def view_products():
+    for p in products.values():
+        print(f"{p.pid} | {p.name} | ₹{p.price} | Stock: {p.stock}")
